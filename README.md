@@ -306,6 +306,12 @@ possibility.
 
 The proxy in the solution should be treated just like any other service running in containers.  
 
+After addressing those concerns, the next steps would be to take a look at adding features like self-healing and 
+on demand scaling.  For self-healing, we would want to implement some health checks on the services so that a
+monitor may ping them to determine the state of the service.  On demand scaling is similar in that we would want to 
+use information about our system to determine whether we should take some preventative actions.  In either case we would
+likely need an additional tool to monitor our system and to take action.
+
 Considerations
 --------------
 
@@ -313,5 +319,6 @@ While I was bringing this demo together, the following things came to mind:
 
 * More heavy weight services, such as a Hadoop stack would need more attention.  The more layers required in a 
 container, the harder it is to maintain and deploy.
+  * A possibility is to use VMs and provision software with ansible
 * I am not sure whether the proxy should have a dynamically assigned port, like the other services, or if it should have 
 static port, like we had in the demo.
