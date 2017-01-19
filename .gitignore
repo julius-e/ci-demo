@@ -1,0 +1,12 @@
+.idea
+.module-cache
+*.iml
+client/
+build/
+.settings/
+*.log
+*.log.*
+coverage/
+**/node_modules/
+registry*/
+.vagrant/

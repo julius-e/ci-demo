@@ -1,0 +1,4 @@
+hosts: [
+  { host_ip: "10.100.200.200", host_name: "cd"},
+  { host_ip: "10.100.200.201", host_name: "prod"}
+]

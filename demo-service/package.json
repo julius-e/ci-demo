@@ -1,0 +1,21 @@
+{
+  "name": "ci-demo",
+  "version": "1.0.0",
+  "description": "A demo of CI",
+  "main": "src/main/js/index.js",
+  "scripts": {
+    "start": "node src/main/js/index.js",
+    "test": "node_modules/.bin/mocha src/test/js/unit/**/*",
+    "integration": "node_modules/.bin/mocha src/test/js/integration/**/*"
+  },
+  "author": "Julius Ecker",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "request": "^2.79.0"
+  }
+}

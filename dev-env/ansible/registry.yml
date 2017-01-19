@@ -1,0 +1,8 @@
+- hosts: cd
+  remote_user: vagrant
+  sudo: yes
+  serial: 1
+  roles:
+    - common
+    - docker
+    - registry
