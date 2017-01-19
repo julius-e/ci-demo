@@ -211,8 +211,8 @@ docker run -it --rm -e "URL=http://10.100.200.201:${CONTAINER_PORT}" --name demo
 
 Earlier we talked about reusing the integration tests to validate the application in production.  This command runs
 the tests against the newly deployed container.  At this point the proxy is still pointing at the old version of the
-service.  If theses tests fail, the deploy will fail (since we are running in -it mode).  This way, the cut over will
-be seamless, there is no downtime regardless of whether the deploy succeeded or failed.
+service.  If these tests fail, the deploy will fail (since we are running in -it mode).  This way the cut over will
+be seamless and there will be no downtime regardless of whether the deploy succeeded or failed.
 
 It should be noted here that the tests we use to validate production should be representative of what "working" means.
 The tests in this demo are not comprehensive, and only check that the service returns a value and a 200 status code.
