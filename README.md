@@ -1,9 +1,19 @@
 CI Demo
 =======
 
-This demo leverages docker to run a simple service in a container.  Integration tests are included in a separate 
-container, and can be run in a self-contained configuration or against a remote url.  This way, we can re-use the 
-integration tests to verify our service in production.
+This demo leverages docker to run a simple service in a container behind a proxy.  This represents a collection of 
+services running behind a load balanced proxy.  The proxy can be thought of as the entry point to the service tier.
+To all outside observers the proxy seems as if it were a single application composed of all the services behind it.
+
+Additionally, the proxy in this configuration can serve multiple purposes.  If there are many instances of a service 
+running, the proxy can also act as a load balancer. If we wish to A/B test a new version of the service, we can 
+configure the proxy to redirect only a segment of users to the new version.
+
+Continuous Deployment requires that we have some automated way to verify the operational state of a service once 
+deployed.  We will leverage integration test to serve this purpose.  I define integration test in this context to be
+a test that is run against the public API of a service. Integration tests are included for the demo service in a 
+separate container, and can be run in a self-contained configuration or against a remote url.  This way, we can use 
+the integration tests to verify our service in dev, on the CI machine, and in production.
 
 I use docker so that the build process is repeatable and reproducible.  Docker could be replaced in this configuration
 with virtual machines or AWS images with some changes.  The goal is to have an immutable image to deploy, whether that 
@@ -14,13 +24,6 @@ simulate production.
 
 I use ansible to bootstrap software on the VMs.  Ansible has a great configuration based solution (similar to the other
 tools used in this demo) to declare the end state that each machine should have. 
-
-The production environment is configured so that there is a proxy sitting in front of the service tier.  This proxy
-is configured to point to the current active instance of the service.  When the CD system deploys to production, it
-will only switch over to the new version if all integration tests have succeeded.  The proxy in this configuration 
-can serve multiple purposes.  If there are many instance of a service running, the proxy can also act as a load balancer.
-If we wish to A/B test a new version of the service, we can configure the proxy to redirect only a segment of users to
-the new version.
 
 To get started, you will need a Linux environment with both Vagrant and Virtual Box installed.  Those are the only 
 requirements.  Everything else will handled via VMs and containers.
