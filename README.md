@@ -22,6 +22,9 @@ can serve multiple purposes.  If there are many instance of a service running, t
 If we wish to A/B test a new version of the service, we can configure the proxy to redirect only a segment of users to
 the new version.
 
+To get started, you will need a Linux environment with both Vagrant and Virtual Box installed.  Those are the only 
+requirements.  Everything else will handled via VMs and containers.
+
 Development
 -----------
 
@@ -302,7 +305,7 @@ our containers stored in a consistent location with a known API.  We could confi
 our proxy's configuration.  That would be a better separation of responsibilities.
 
 Additionally, a dedicated proxy solution would be an improvement over the proxy used in the demo.  nginx is a 
-possibility.  
+possibility.
 
 The proxy in the solution should be treated just like any other service running in containers.  
 
