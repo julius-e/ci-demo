@@ -8,5 +8,5 @@ build/
 *.log.*
 coverage/
 **/node_modules/
-registry*/
+/registry*/
 .vagrant/
